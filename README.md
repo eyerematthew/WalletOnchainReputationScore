@@ -34,6 +34,6 @@ This idea illustrates how reputation-based role access could function, utilising
 
 ## 🔗 Related Links
 
-- Tweet: [tweet link here](.)
+- Tweet: [tweet link here](https://x.com/eyere_1/status/1947204130180657188)
 
 ---
