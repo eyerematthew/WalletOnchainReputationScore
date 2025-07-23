@@ -8,16 +8,15 @@ contract WalletReputationOnchain is ITrap {
     string constant DISCORD_NAME = "cryptomaster869#0000";
 
     function collect() external view returns (bytes memory) {
-        // Simulated reputation score for the wallet
-        uint256 reputationScore = 1337; // You can replace this with dynamic logic later
+        uint256 reputationScore = 1337; // Simulated reputation score
         return abi.encode(TARGET_WALLET, reputationScore, DISCORD_NAME);
     }
 
     function shouldRespond(bytes[] calldata data) external pure returns (bool, bytes memory) {
         (address wallet, uint256 score, string memory discord) = abi.decode(data[0], (address, uint256, string));
-        
-        if (wallet != TARGET_WALLET  score < 1000  bytes(discord).length == 0) {
-            return (false, bytes(""));
+
+        if (wallet != TARGET_WALLET || score < 1000 || bytes(discord).length == 0) {
+            return (false, "");
         }
 
         return (true, abi.encode(wallet, discord));
